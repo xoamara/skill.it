@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS skillit;
+CREATE DATABASE skillit;
