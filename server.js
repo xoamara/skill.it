@@ -10,9 +10,13 @@ app.use(express.json());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
+// Routes
 const dataRoutes = require("./routes/dataRoutes");
 app.use(dataRoutes);
 
-app.listen(PORT, function() {
+const htmlRoutes = require("./routes/htmlRoutes");
+app.use(htmlRoutes);
+
+app.listen(PORT, () => {
     console.log(`Server listening on PORT ${PORT}`);
 });
