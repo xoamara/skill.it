@@ -11,11 +11,11 @@ Update bio
 Update password
 Update email address (?)
 */
-
-
-// const db = require("../models");
 const express = require("express");
 const router = express.Router();
+
+const knexConfig = require("../knexfile");
+const knex = require("knex")(knexConfig["development"]);
 
 // Get data for a user
 router.get("/api/users/:id", (req, res) => {

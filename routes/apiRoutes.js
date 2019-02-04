@@ -1,4 +1,5 @@
-const db = require("../models");
+const knexConfig = require("../knexfile");
+const knex = require("knex")(knexConfig["development"]);
 
 module.exports = function(app) {
     // Get all examples

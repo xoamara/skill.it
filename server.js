@@ -2,9 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const ejs = require("ejs");
 
-
-const db = require("./models");
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -17,27 +14,15 @@ app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-
-const syncOptions = { force: false };
-
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-    syncOptions.force = true;
-}
-
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(() => {
-    app.listen(PORT, () => {
-        console.log(
-            "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-            PORT,
-            PORT
-        );
-    });
+// index page 
+app.get("/", (req, res) => {
+    res.render("pages/index");
 });
 
-module.exports = app;
+// Routes
+const dataRoutes = require("./routes/dataRoutes");
+app.use(dataRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server listening on PORT ${PORT}`);
+});
