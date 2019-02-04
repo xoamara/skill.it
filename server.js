@@ -14,6 +14,9 @@ app.set("view engine", "ejs");
 const dataRoutes = require("./routes/dataRoutes");
 app.use(dataRoutes);
 
+const htmlRoutes = require("./routes/htmlRoutes");
+app.use(htmlRoutes);
+
 app.listen(PORT, () => {
     console.log(`Server listening on PORT ${PORT}`);
 });

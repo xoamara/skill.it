@@ -1,11 +1,14 @@
 const express = require("express");
-const app = express();
+const router = express.Router();
+
 const knexConfig = require("../knexfile");
 const knex = require("knex")(knexConfig.development);
 
 // Load index page
 // index page 
-app.get("/", (req, res) => {
+router.get("/", (req, res) => {
     res.render("pages/index");
 });
 
+
+module.exports = router;
