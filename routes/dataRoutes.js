@@ -7,15 +7,6 @@ const knex = require("knex")(knexConfig.development);
 /*
     User-related Routes
 */
-<<<<<<< HEAD
-const express = require("express");
-const router = express.Router();
-
-const knexConfig = require("../knexfile");
-const knex = require("knex")(knexConfig["development"]);
-
-// Get data for a user
-=======
 
 // get all users
 router.get("/api/users", (req, res) => {
@@ -26,7 +17,6 @@ router.get("/api/users", (req, res) => {
 });
 
 // get a specific user
->>>>>>> master
 router.get("/api/users/:id", (req, res) => {
     knex
         .select()
