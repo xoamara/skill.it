@@ -23,10 +23,10 @@
 
     <main>
 
-    <!-- this is my way to render to the page -->
-        <% users.forEach(function(user){ %>
+    <!-- this is the syntax to render to the page -->
+        <!-- <% users.forEach(function(user){ %>
             <li> <%= user.username %> </li>
-        <% }); %>
+        <% }); %> -->
 
 
         <!-- Search Header -->
@@ -60,6 +60,7 @@
             <div class="container">
 
                 <!-- Example User #1 -->
+                <% users.forEach(function(user) { %>
                 <div class="box is-shadow">
                     <article class="media">
                         <div class="media-left">
@@ -70,9 +71,9 @@
                         <div class="media-content">
                             <div class="content userHeader">
                                 <p>
-                                    <strong class="userName">Mac Hollister</strong>
+                                    <strong class="userName" id="<%= user.id %>"><%= user.username %></strong>
                                     <medium class="userEmail">| </medium>
-                                    <medium class="userEmail">coolmathguy@uw.edu</medium>
+                                    <medium class="userEmail"><%= user.email %></medium>
                                     <medium>
                                         <a>
                                             <span class="icon is-small">
@@ -84,6 +85,7 @@
                                     <medium class="userInfo">Amateur | Beginner, Advanced</medium>
                                     <br>
                                     <br>
+                                    <%= user.description %>
                                     Lorem ipsum dolor sit amet, math math blah blah, consectetur adipiscing elit.
                                     <br>
                                     <br>
@@ -94,7 +96,7 @@
 
                     <!-- Teaching/Learning -->
                     <div class="teaching">
-                        <h6 class="is-size-6">Teaches:</h6>
+                        <h6 class="is-size-6">Teaching</h6>
                         <div class="buttons are-small">
                             <a class="button">Salsa</a>
                             <a class="button">Math</a>
@@ -103,6 +105,8 @@
                         </div>
                     </div>
                     <br>
+
+
                     <div class="learning">
                         <h6 class="is-size-6">Learning:</h6>
                         <div class="buttons are-small">
@@ -112,68 +116,9 @@
                             <a class="button">Cello</a>
                         </div>
                     </div>
-
                 </div>
+                <% }); %>
                 <!-- End User #1 -->
-
-                <!-- Ex. User #2 -->
-                <div class="box is-shadow">
-                    <article class="media">
-                        <div class="media-left">
-                            <figure class="image is-64x64">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/64x64.png">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <div class="content userHeader">
-                                <p>
-                                    <strong class="userName">Candice Cupcake</strong>
-                                    <medium class="userEmail">| </medium>
-                                    <medium class="userEmail">confectioner@bakery.com</medium>
-                                    <medium>
-                                        <a>
-                                            <span class="icon is-small">
-                                                <i class="fas fa-envelope emailContact"></i>
-                                            </span>
-                                        </a>
-                                    </medium>
-                                    <br>
-                                    <medium class="userInfo">Professional | Beginner, Intermediate</medium>
-                                    <br>
-                                    <br>
-                                    Lorem ipsum dolor sit amet, cakes and cups blah blah, consectetur adipiscing elit.
-                                    <br>
-                                    <br>
-                                </p>
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                    <!-- Teaching/Learning -->
-                    <div class="teaching">
-                        <h6 class="is-size-6">Teaches:</h6>
-                        <div class="buttons are-small">
-                            <a class="button">Baking</a>
-                            <a class="button">Cooking</a>
-                            <a class="button">Spanish</a>
-                            <a class="button">Pilates</a>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="learning">
-                        <h6 class="is-size-6">Learning:</h6>
-                        <div class="buttons are-small">
-                            <a class="button">Yoga</a>
-                            <a class="button">Embroidery</a>
-                            <a class="button">Kickboxing</a>
-                            <a class="button">Cello</a>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- End User #2 -->
 
             </div>
         </section>
