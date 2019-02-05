@@ -6,7 +6,7 @@ module.exports = {
     connection: {
       database: "skillit",
       user: "root",
-      password: process.env.PASSWORD
+      password: "W@2blju&2ZXH&BkC6R51"
     },
     pool: {
       min: 2,
