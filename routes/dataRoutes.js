@@ -96,7 +96,6 @@ router.get("/api/skills", (req, res) => {
         .then(results => res.json(results));
 });
 
-<<<<<<< HEAD
 router.get("/api/skills/:skill", (req, res) => {
     knex
         .select()
@@ -118,20 +117,17 @@ router.get("/api/users/:id/learn", (req, res) => {
         })
         .then(results => res.json(results));
 });
-=======
-/*
-    get a specific skill's info
->>>>>>> master
 
-    - skill's id
-    - skill's name
-    - list of users who want to learn the skill
-        - each user's id
-        - each user's username
-    - list of users who can teach the skill
-        - each user's id
-        - each user's username
-*/
+// */
+//     - skill's id
+//     - skill's name
+//     - list of users who want to learn the skill
+//         - each user's id
+//         - each user's username
+//     - list of users who can teach the skill
+//         - each user's id
+//         - each user's username
+// */
 router.get("/api/skills/:id", (req, res) => {
     const skillData = {};
     
