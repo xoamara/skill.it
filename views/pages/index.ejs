@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- views/pages/index.ejs -->
+
+
+
+<!-- views/pages/index.ejs -->
 
 
 <head>
     <%- include ../partials/head %>
 </head>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script src="js/index.js"></script>
 
 <body class="container">
 
@@ -15,6 +23,11 @@
 
     <main>
 
+    <!-- this is my way to render to the page -->
+        <% users.forEach(function(user){ %>
+            <li> <%= user.username %> </li>
+        <% }); %>
+
 
         <!-- Search Header -->
 
@@ -22,13 +35,13 @@
         <div class="level-item searchDiv">
             <div class="field has-addons homeSearch">
                 <p class="control is-expanded">
-                    <input class="input searchText" type="text" placeholder="What would you like to learn?">
+                    <input class="input searchText" type="text" id="skillSearch" placeholder="What would you like to learn?">
                 </p>
-                <p class="control">
-                    <a class="button is-success">
+                <form class="control create-form">
+                    <a class="button is-success" type="submit">
                         Search
                     </a>
-                </p>
+                </form>
             </div>
         </div>
 
@@ -76,9 +89,7 @@
                                     <br>
                                 </p>
                             </div>
-
                         </div>
-
                     </article>
 
                     <!-- Teaching/Learning -->

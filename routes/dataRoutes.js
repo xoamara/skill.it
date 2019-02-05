@@ -58,6 +58,17 @@ router.get("/api/skills", (req, res) => {
         .then(results => res.json(results));
 });
 
+router.get("/api/skills/:skill", (req, res) => {
+    knex
+        .select()
+        .from("skill")
+        .where({
+            skill: req.params.skill
+        })
+        .then(results => res.json(results));
+});
+
+
 // get all skills a specific user wants to learn
 router.get("/api/users/:id/learn", (req, res) => {
     knex
