@@ -1,6 +1,8 @@
-const ejs = require("ejs");
+// const ejs = require("ejs");
 
 const express = require("express");
+const session = require("express-session");
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -9,6 +11,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
+
+
 
 // Routes
 const authRoutes = require("./routes/authRoutes");
