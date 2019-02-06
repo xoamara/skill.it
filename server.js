@@ -12,7 +12,10 @@ app.use(express.json());
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-
+// Test route -- delete this later
+app.get("/", (req, res) => {
+    res.send("Welcome to Passport with Sequelize and no Handlebars!");
+});
 
 // Routes
 const authRoutes = require("./routes/authRoutes");
