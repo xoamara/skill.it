@@ -6,6 +6,8 @@ const session = require("express-session");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const db = require("./models");
+
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -27,6 +29,8 @@ app.use(dataRoutes);
 const htmlRoutes = require("./routes/htmlRoutes");
 app.use(htmlRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server listening on PORT ${PORT}`);
+db.sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server listening on PORT ${PORT}`);
+    });
 });
