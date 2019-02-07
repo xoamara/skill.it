@@ -27,13 +27,11 @@ passport.use(new LocalStrategy(
 // For maintaining authentication across HTTP requests
 // (i.e. staying logged in)
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user);
 });
 
-passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => {
-        done(err, user);
-    });
+passport.deserializeUser((user, done) => {
+    done(null, user);
 });
 
 module.exports = passport;
