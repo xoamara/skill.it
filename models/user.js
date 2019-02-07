@@ -1,5 +1,7 @@
 "use strict";
 
+const bcrypt = require("bcrypt-nodejs");
+
 module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {
         username: {
@@ -10,7 +12,10 @@ module.exports = (sequelize, DataTypes) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
+            validate: {
+                isEmail: true
+            }
         },
         password: {
             type: DataTypes.STRING,
@@ -23,15 +28,19 @@ module.exports = (sequelize, DataTypes) => {
         freezeTableName: true
     });
 
-    User.associate = function (models) {
-        User.hasMany(models.SkillToLearn, {
-            onDelete: "cascade"
-        });
+    User.addHook("beforeCreate", user => {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    });
 
-        User.hasMany(models.SkillToTeach, {
-            onDelete: "cascade"
-        });
-    };
+    // User.associate = function (models) {
+    //     User.hasMany(models.SkillToLearn, {
+    //         onDelete: "cascade"
+    //     });
+
+    //     User.hasMany(models.SkillToTeach, {
+    //         onDelete: "cascade"
+    //     });
+    // };
     
     return User;
 };

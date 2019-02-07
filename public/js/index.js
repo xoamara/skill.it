@@ -2,6 +2,7 @@
 $(function () {
 
     $(".searchDiv").on("click", ".button", function (event) {
+        event.preventDefault();
 
         console.log("I've been clicked!");
 

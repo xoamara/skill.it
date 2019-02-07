@@ -1,29 +1,31 @@
-const express = require("express");
-const router = express.Router();
+const db = require("../models");
+const passport = require("../config/passport");
 
-const bcrypt = require("bcrypt-nodejs");
+const router = require("express").Router();
 
-const knexConfig = require("../knexfile");
-const knex = require("knex")(knexConfig.development);
+// route for loggin in
+router.post("/login", passport.authenticate("local"), (req, res) => {
+    res.json("/members");
+});
 
-// create new user
-router.post("/api/register", (req, res) => {
-    const userData = {
+// route for signing up
+router.post("/register", (req, res) => {
+    db.User.create({
         username: req.body.username,
-        email: req.body.email,
-        description: req.body.description,
-        password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
-    };
-    knex("user")
-        .insert(userData)
-        .then(results => {
-            userData.id = results[0];
-            res.status(201).json(userData);
-        })
-        .catch(error => {
-            console.error(error);
-            res.status(400).end();
-        });
+        password: req.body.password,
+        email: req.body.email
+    }).then(() => {
+        res.redirect(307, "/login"); // automatically login after signup
+    }).catch(err => {
+        console.log(err);
+        res.json(err);
+    });
+});
+
+// route for logging out
+router.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/"); // redirect to home page
 });
 
 module.exports = router;

@@ -1,0 +1,8 @@
+// Allows for restricting routes for unauthenticated users
+module.exports = function(req, res, next) {
+    if (req.user) {
+        return next();
+    }
+
+    return res.redirect("/");
+};
