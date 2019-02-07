@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>skill.it</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="../../public/styles/style.css">
+</head>
+
+
+<!-- Navigation Bar -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item">
+            <p class="is-size-4 navTitle"><strong>skill.it</strong></p>
+            <img src="file:///Users/jonathandavis/Downloads/iconfinder_04_1012206.svg" width="50" height="50">
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item">
+                Home
+            </a>
+
+            <a class="navbar-item">
+                About
+            </a>
+
+            <a class="navbar-item">
+                More
+            </a>
+        </div>
+
+        <div class="navbar-end signAndLog">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-info">
+                        <strong>Sign up</strong>
+                    </a>
+                    <a class="button is-dark">
+                        Log in
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Body -->
+
+<body>
+
+    <div class="box createUser">
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Text input">
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" type="text" placeholder="Text input">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" type="email" placeholder="Email input">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                </span>
+                <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                </span>
+            </div>
+            <p class="help is-success"></p>
+        </div>
+
+    <div class="box">
+        <div class="field">
+            <label class="label">What I teach</label>
+            <div class="control">
+                <div class="select">
+                    <select>
+                        <option>Painting</option>
+                        <option>Yoga</option>
+                        <option>Chemisty</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">What I want to learn</label>
+            <div class="control">
+                <div class="select">
+                    <select>
+                        <option>Cooking</option>
+                        <option>Sailing</option>
+                        <option>Game designn</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="field">
+            <label class="label">About Me</label>
+            <div class="control">
+                <textarea class="textarea" placeholder="Textarea"></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox">
+                    I agree to the <a href="#">terms and conditions</a>
+                </label>
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-text">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer footerDiv">
+        <div class="has-text-centered">
+            <p>
+                <strong>skill.it</strong> ©2019 by <p>Mac Hollister, Neri Stec, Truc Ly Le, and Jonathan Davis.</p>
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
