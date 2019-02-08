@@ -3,15 +3,6 @@ const router = require("express").Router();
 // const knexConfig = require("../knexfile");
 // const knex = require("knex")(knexConfig.development);
 
-// // Load index page
-// // index page 
-// router.get("/", (req, res) => {
-//     // knex
-//     //     .select()
-//     //     .from("user")
-//     //     .then(results => res.render("pages/index", {users: results}));
-// });
-
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
@@ -21,12 +12,17 @@ this needs to be fixed
 Instead of sending signup.html, it should render the signup page
 */
 router.get("/", (req, res) => {
-    if (req.user) {
+    // if (req.user) {
 
-        // Redirect to placeholder: See below
-        res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    //     // Redirect to placeholder: See below
+    //     // res.redirect("/members");
+    //     res.render("../views/pages/index.ejs", {user: res.user});
+    // }
+
+    // Renders the main page
+    const users = [{}];
+    res.render(path.join(__dirname, "../views/pages/index.ejs"), {users: users});
+
 });
 
 /*
@@ -41,6 +37,11 @@ router.get("/login", (req, res) => {
         res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
+});
+
+// Signup a new user
+router.get("/signup", (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/pages/createUser.html"));
 });
 
 // Placeholder -- model for routes that can only be accessed when the user is authenticated
