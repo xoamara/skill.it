@@ -1,7 +1,5 @@
 const path = require("path");
 const router = require("express").Router();
-// const knexConfig = require("../knexfile");
-// const knex = require("knex")(knexConfig.development);
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -21,7 +19,7 @@ router.get("/", (req, res) => {
 
     // Renders the main page
     const users = [{}];
-    res.render(path.join(__dirname, "../views/pages/index.ejs"), {users: users});
+    res.render(path.join(__dirname, "../public/views/pages/index.ejs"), {users: users});
 
 });
 
@@ -36,12 +34,12 @@ router.get("/login", (req, res) => {
         // Redirect to placeholder: See below
         res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "../public/views/pages/login.html"));
 });
 
 // Signup a new user
 router.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "../views/pages/createUser.html"));
+    res.sendFile(path.join(__dirname, "../public/views/pages/createUser.html"));
 });
 
 // Placeholder -- model for routes that can only be accessed when the user is authenticated
