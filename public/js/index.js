@@ -26,6 +26,9 @@ $(function () {
                                         <a>
                                             <span class="icon is-small">
                                                 <i class="fas fa-envelope emailContact"></i>
+                                            </span> &nbsp;
+                                            <span class="icon is-small" data-id="${user.id}">
+                                                <i class="fas fa-comments chatContact"></i>
                                             </span>
                                         </a>
                                     </medium>
