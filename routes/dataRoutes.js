@@ -53,4 +53,9 @@ router.get("/api/skills/:id", (req, res) => {
         .then(results => res.json(results));
 });
 
+router.post("/send", (req, res) => {
+    console.log(req.body);
+
+});
+
 module.exports = router;

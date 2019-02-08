@@ -47,4 +47,12 @@ router.get("/members", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/members.html"));
 });
 
+router.get("/contact", (req, res) => {
+    res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
+});
+
+
+
+
+
 module.exports = router;
