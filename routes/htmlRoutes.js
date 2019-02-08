@@ -39,6 +39,11 @@ router.get("/login", (req, res) => {
     res.sendFile(path.join(__dirname, "../public/login.html"));
 });
 
+// Signup a new user
+router.get("/signup", (req, res) => {
+    res.sendFile(path.join(__dirname, "../views/pages/createUser.html"));
+});
+
 // Placeholder -- model for routes that can only be accessed when the user is authenticated
 router.get("/members", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/members.html"));
