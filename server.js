@@ -4,6 +4,8 @@ const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport");
 
+const path = require("path");
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -21,7 +23,7 @@ app.use(passport.session());
 
 // Test route -- delete this later
 // app.get("/", (req, res) => {
-//     res.send("Welcome to Passport with Sequelize and no Handlebars!");
+//     res.render(path.join(__dirname, "./views/pages/main.ejs"));
 // });
 
 // Routes
