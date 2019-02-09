@@ -2,7 +2,6 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const nodemailer = require("nodemailer");
 const session = require("express-session");
 const passport = require("./config/passport");
 
@@ -16,7 +15,7 @@ const db = require("./models");
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 // Middleware for Nodemailer
