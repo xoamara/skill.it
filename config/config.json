@@ -1,7 +1,11 @@
 {
     "development": {
         "username": "root",
+<<<<<<< HEAD
         "password": "pa$$word",
+=======
+        "password": "Studer2!",
+>>>>>>> origin
         "database": "skillit",
         "host": "127.0.0.1",
         "dialect": "mysql"
