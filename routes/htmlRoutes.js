@@ -2,32 +2,24 @@ const path = require("path");
 const router = require("express").Router();
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
 
 
-/*
-this needs to be fixed
-
-Instead of sending signup.html, it should render the signup page
-*/
+// Home page
 router.get("/", (req, res) => {
-    // if (req.user) {
-
-    //     // Redirect to placeholder: See below
-    //     // res.redirect("/members");
-    //     res.render("../views/pages/index.ejs", {user: res.user});
-    // }
-
     // Renders the main page
     const users = [{}];
+
+    // db.User 
+    //     .findAll({
+    //         include: [db.SkillToLearn, db.SkillToTeach]
+    //     })
+    //     .then(results => res.json(results));
     res.render(path.join(__dirname, "../public/views/pages/index.ejs"), {users: users});
 
 });
 
-/*
-this needs to be fixed
-
-Instead of sending login.html, it should render the login page
-*/
+// Send login page
 router.get("/login", (req, res) => {
     if (req.user) {
 
