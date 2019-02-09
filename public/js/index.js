@@ -96,4 +96,25 @@ $(function () {
 
     });
 
+    $("#submitButton").on("click", (event) => {
+        event.preventDefault();
+        if ($(".checkbox")) {
+            const username = $("#usernameInput").val().trim();
+            const email = $("#emailInput").val().trim();
+            const password = $("#passwordInput").val().trim();
+            const description = $("#aboutMe").val();
+    
+            console.log(username, email, password, description);
+    
+            $.post("/register", {
+                username: username, 
+                email: email, 
+                password: password, 
+                description: description
+            }).then(function (res) {
+                console.log(res);
+            });
+        }
+    });
+
 });
