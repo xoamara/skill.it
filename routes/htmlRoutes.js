@@ -2,20 +2,19 @@ const path = require("path");
 const router = require("express").Router();
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
-// const db = require("../models");
+const db = require("../models");
 
 
 // Home page
 router.get("/", (req, res) => {
     // Renders the main page
-    const users = [{}];
+    // const users = [{}];
 
-    // db.User 
-    //     .findAll({
-    //         include: [db.SkillToLearn, db.SkillToTeach]
-    //     })
-    //     .then(results => res.json(results));
-    res.render(path.join(__dirname, "../public/views/pages/index.ejs"), {users: users});
+    db.User 
+        .findAll({
+            include: [db.SkillToLearn, db.SkillToTeach]
+        })
+        .then(results => res.render(path.join(__dirname, "../public/views/pages/index.ejs"), {users: results}));
 
 });
 
