@@ -12,14 +12,17 @@ const db = require("../models");
 router.get("/api/users", (req, res) => {
     db.User
         .findAll({
+            attributes: ["id", "username", "email", "description", "createdAt", "updatedAt"],
             include: [
                 {
                     model: db.SkillToLearn,
-                    as: "skillsLearning"
+                    as: "skillsLearning",
+                    attributes: ["skillId", "createdAt", "updatedAt"]
                 },
                 {
                     model: db.SkillToTeach,
                     as: "skillsTeaching",
+                    attributes: ["skillId", "createdAt", "updatedAt"]
                 }
             ]
         })
@@ -30,17 +33,20 @@ router.get("/api/users", (req, res) => {
 router.get("/api/users/:id", (req, res) => {
     db.User
         .findOne({
+            attributes: ["id", "username", "email", "description", "createdAt", "updatedAt"],
             where: {
                 id: req.params.id
             },
             include: [
                 {
                     model: db.SkillToLearn,
-                    as: "skillsLearning"
+                    as: "skillsLearning",
+                    attributes: ["skillId", "createdAt", "updatedAt"]
                 },
                 {
                     model: db.SkillToTeach,
                     as: "skillsTeaching",
+                    attributes: ["skillId", "createdAt", "updatedAt"]
                 }
             ]
         })
@@ -58,11 +64,13 @@ router.get("/api/skills", (req, res) => {
             include: [
                 {
                     model: db.SkillToLearn,
-                    as: "usersLearning"
+                    as: "usersLearning",
+                    attributes: ["userId", "createdAt", "updatedAt"]
                 },
                 {
                     model: db.SkillToTeach,
                     as: "usersTeaching",
+                    attributes: ["userId", "createdAt", "updatedAt"]
                 }
             ]
         })
@@ -79,11 +87,13 @@ router.get("/api/skills/:id", (req, res) => {
             include: [
                 {
                     model: db.SkillToLearn,
-                    as: "usersLearning"
+                    as: "usersLearning",
+                    attributes: ["userId", "createdAt", "updatedAt"]
                 },
                 {
                     model: db.SkillToTeach,
                     as: "usersTeaching",
+                    attributes: ["userId", "createdAt", "updatedAt"]
                 }
             ]
         })
