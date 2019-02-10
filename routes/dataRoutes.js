@@ -12,7 +12,16 @@ const db = require("../models");
 router.get("/api/users", (req, res) => {
     db.User
         .findAll({
-            include: [db.SkillToLearn, db.SkillToTeach]
+            include: [
+                {
+                    model: db.SkillToLearn,
+                    as: "skillsLearning"
+                },
+                {
+                    model: db.SkillToTeach,
+                    as: "skillsTeaching",
+                }
+            ]
         })
         .then(results => res.json(results));
 });
@@ -24,7 +33,16 @@ router.get("/api/users/:id", (req, res) => {
             where: {
                 id: req.params.id
             },
-            include: [db.SkillToLearn, db.SkillToTeach]
+            include: [
+                {
+                    model: db.SkillToLearn,
+                    as: "skillsLearning"
+                },
+                {
+                    model: db.SkillToTeach,
+                    as: "skillsTeaching",
+                }
+            ]
         })
         .then(results => res.json(results));
 });
