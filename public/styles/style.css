@@ -72,3 +72,9 @@
     margin: 0 auto;
     margin-top: 50px;
 }
+
+.aboutcard {
+    padding: 25px;
+    margin: 100px;
+    width: 750px;
+}

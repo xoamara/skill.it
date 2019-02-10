@@ -30,26 +30,26 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="/">
                     Home
                 </a>
 
-                <a class="navbar-item">
+                <a class="navbar-item" href="/about">
                     About
                 </a>
 
-                <a class="navbar-item">
-                    More
+                <a class="navbar-item" href="/contact">
+                    Contact
                 </a>
             </div>
 
             <div class="navbar-end signAndLog">
                 <div class="navbar-item">
                     <div class="buttons">
-                        <a class="button is-info">
+                        <a class="button is-info" id="signupButton" href="/signup">
                             <strong>Sign up</strong>
                         </a>
-                        <a class="button is-dark">
+                        <a class="button is-dark" id="loginButton" href="/login">
                             Log in
                         </a>
                     </div>
@@ -66,9 +66,9 @@
     <div class="box signUp">
 
         <div class="field">
-            <label class="label">Username or Email</label>
+            <label class="label">Username</label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="text" placeholder="Text input">
+                <input class="input is-success" id="usernameInput" type="text" placeholder="Text input">
                 <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                 </span>
@@ -81,23 +81,23 @@
         <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left has-icons-right">
-                <input class="input is-success" type="email" placeholder="Text input">
+                <input class="input is-success" id="passwordInput" type="email" placeholder="Text input">
                 <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
+                    <i class="fas fa-key"></i>
                 </span>
                 <span class="icon is-small is-right">
                     <i class="fas fa-check"></i>
                 </span>
             </div>
-            <p class="help is-success"></p>
+            <!-- <p class="help is-success"></p> -->
         </div>
 
         <div class="field is-grouped">
             <div class="control">
-                <button class="button is-link">Submit</button>
+                <button class="button is-link "id="loginSubmit">Submit</button>
             </div>
             <div class="control">
-                <button class="button is-text">Cancel</button>
+                <button class="button is-text cancelButton">Cancel</button>
             </div>
         </div>
     </div>
