@@ -55,7 +55,16 @@ router.get("/api/users/:id", (req, res) => {
 router.get("/api/skills", (req, res) => {
     db.Skill
         .findAll({
-            include: [db.SkillToLearn, db.SkillToTeach]
+            include: [
+                {
+                    model: db.SkillToLearn,
+                    as: "usersLearning"
+                },
+                {
+                    model: db.SkillToTeach,
+                    as: "usersTeaching",
+                }
+            ]
         })
         .then(results => res.json(results));
 });
@@ -67,7 +76,16 @@ router.get("/api/skills/:id", (req, res) => {
             where: {
                 id: req.params.id
             },
-            include: [db.SkillToLearn, db.SkillToTeach]
+            include: [
+                {
+                    model: db.SkillToLearn,
+                    as: "usersLearning"
+                },
+                {
+                    model: db.SkillToTeach,
+                    as: "usersTeaching",
+                }
+            ]
         })
         .then(results => res.json(results));
 });
