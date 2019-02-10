@@ -31,20 +31,23 @@ router.get("/login", (req, res) => {
 
 // Signup a new user
 router.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/pages/createUser.html"));
+    res.sendFile(path.join(__dirname, "../public/views/pages/register.html"));
 });
+
+router.get("/contact", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/views/pages/contact.html"));
+});
+
+// About skill.it
+router.get("/about", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public//views/pages/about.html"));
+});
+
 
 // Placeholder -- model for routes that can only be accessed when the user is authenticated
 router.get("/members", isAuthenticated, (req, res) => {
     res.sendFile(path.join(__dirname, "../public/members.html"));
 });
-
-router.get("/contact", (req, res) => {
-    res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
-});
-
-
-
 
 
 module.exports = router;
