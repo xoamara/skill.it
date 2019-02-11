@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- views/pages/index.ejs -->
+
+
+    <head>
+        <%- include ../partials/head %>
+    </head>
+
+    
+    <body class="container">
+
+        <header>
+            <%- include ../partials/header %>
+        </header>
+
+    <div class="box signUp">
+
+        <div class="field">
+            <label class="label">Username</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" id="usernameInput" type="text" placeholder="Text input">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" id="passwordInput" type="email" placeholder="Text input">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-key"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </div>
+            <!-- <p class="help is-success"></p> -->
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link "id="loginSubmit">Submit</button>
+            </div>
+            <div class="control">
+                <button class="button is-text cancelButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <%- include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>
