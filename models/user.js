@@ -34,12 +34,14 @@ module.exports = (sequelize, DataTypes) => {
 
     User.associate = function (models) {
         User.hasMany(models.SkillToLearn, {
+            as: "skillsLearning",
             onDelete: "cascade",
             foreignKey: "userId",
             sourceKey: "id"
         });
 
         User.hasMany(models.SkillToTeach, {
+            as: "skillsTeaching",
             onDelete: "cascade",
             foreignKey: "userId",
             sourceKey: "id"
