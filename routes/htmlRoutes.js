@@ -25,27 +25,27 @@ router.get("/login", (req, res) => {
         // Redirect to placeholder: See below
         res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/views/pages/login.html"));
+    res.render(path.join(__dirname, "../public/views/pages/login.ejs"));
 });
 
 // Signup a new user
 router.get("/signup", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/pages/register.html"));
+    res.render(path.join(__dirname, "../public/views/pages/register.ejs"));
 });
 
 router.get("/contact", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/views/pages/contact.html"));
+    res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
 });
 
 // About skill.it
 router.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "../public//views/pages/about.html"));
+    res.render(path.join(__dirname, "../public//views/pages/about.ejs"));
 });
 
 
 // Placeholder -- model for routes that can only be accessed when the user is authenticated
 router.get("/members", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.render(path.join(__dirname, "../public/members.ejs"));
 });
 
 

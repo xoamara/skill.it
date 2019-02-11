@@ -1,67 +1,18 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>skill.it</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/index.js"></script>
-</head>
+<html lang="en">
+    <!-- views/pages/index.ejs -->
 
 
-    <!-- Navigation Bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item">
-                <p class="is-size-4 navTitle"><strong>skill.it</strong></p>
-                <img src="images/skillet.svg" width="50" height="50">
-            </a>
+    <head>
+        <%- include ../partials/head %>
+    </head>
 
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
+    
+    <body class="container">
 
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="/">
-                    Home
-                </a>
-
-                <a class="navbar-item" href="/about">
-                    About
-                </a>
-
-                <a class="navbar-item" href="/contact">
-                    Contact
-                </a>
-            </div>
-
-            <div class="navbar-end signAndLog">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-info" id="signupButton" href="/signup">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-dark" id="loginButton" href="/login">
-                            Log in
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-
-<!-- Body -->
-
-<body>
+        <header>
+            <%- include ../partials/header %>
+        </header>
 
     <div class="box createUser">
 
@@ -161,12 +112,8 @@
         
     </div>
 
-    <footer class="footer footerDiv">
-        <div class="has-text-centered">
-            <p>
-                <strong>skill.it</strong> ©2019 by <p>Mac Hollister, Neri Stec, Truc Ly Le, and Jonathan Davis.</p>
-            </p>
-        </div>
+    <footer>
+        <%- include ../partials/footer %>
     </footer>
 
 </body>
