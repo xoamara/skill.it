@@ -1,30 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- views/pages/index.ejs -->
+    <%- include ../partials/head %>
 
-
-    <head>
-        <%- include ../partials/head %>
-    </head>
-
-    
     <body class="container">
-
         <header>
             <%- include ../partials/header %>
         </header>
-
         <main>
-
-            <!-- this is the syntax to render to the page -->
-            <!-- <% users.forEach(function(user){ %>
-            <li> <%= user.username %> </li>
-        <% }); %> -->
-
-
-            <!-- Search Header -->
-
-            <!-- Searchbar -->
             <div class="level-item searchDiv">
                 <div class="field has-addons homeSearch">
                     <p class="control is-expanded">
@@ -39,7 +21,6 @@
                 </div>
             </div>
 
-
             <!-- Filter Section -->
             <h2 class="is-size-4 level-item filterText">Filter by:</h2>
 
@@ -52,21 +33,12 @@
             <!-- User Container -->
             <section class="section">
                 <div class="container" id="users"></div>
-
-                <%- include ../partials/userdata %>
             </section>
-
         </main>
+
+        <%- include ../partials/footer %>
 
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="js/index.js"></script>
-
     </body>
-
-
-    <footer>
-        <%- include ../partials/footer %>
-    </footer>
-
 </html>
