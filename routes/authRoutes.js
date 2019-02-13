@@ -8,12 +8,16 @@ const User = require("../models").User;
 
 // route for signing up
 router.post("/register", (req, res) => {
-    const { username, email, password/*, password2 */} = req.body;
+    const { username, email, password/*, password2 */, agreeBox} = req.body;
     const errors = [];
 
     // Check required fields
     if (!(username && email && password /* && password2*/)) {
         errors.push({msg: "Please fill in all fields"});
+    }
+
+    if (!agreeBox) {
+        errors.push({msg: "Please agree to terms and conditions"});
     }
 
     // Check if passwords match
@@ -23,7 +27,7 @@ router.post("/register", (req, res) => {
 
     // Check password length
     if (password.length < 6) {
-        errors.push({msg: "Passowrd must be at least 6 characters"});
+        errors.push({msg: "Password must be at least 6 characters"});
     }
 
     if (errors.length > 0) {
