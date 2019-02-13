@@ -73,8 +73,20 @@
     margin-top: 50px;
 }
 
-.aboutcard {
-    padding: 25px;
-    margin: 100px;
-    width: 750px;
+.aboutContactDivs {
+    margin: 75px;
 }
+
+.Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .Site-content {
+    flex: 1;
+  }
+
+  .modal-content {
+      width: 750px;
+  }

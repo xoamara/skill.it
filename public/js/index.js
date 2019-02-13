@@ -33,6 +33,7 @@ $(() => {
                 description: description
             }).then((res) => {
                 console.log(res);
+                window.location.replace("/");
             });
         }
     });
