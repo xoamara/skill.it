@@ -8,11 +8,11 @@ const User = require("../models").User;
 
 // route for signing up
 router.post("/register", (req, res) => {
-    const { username, email, password/*, password2 */, agreeBox} = req.body;
+    const { username, email, password, password2, agreeBox} = req.body;
     const errors = [];
 
     // Check required fields
-    if (!(username && email && password /* && password2*/)) {
+    if (!(username && email && password && password2)) {
         errors.push({msg: "Please fill in all fields"});
     }
 
@@ -21,9 +21,9 @@ router.post("/register", (req, res) => {
     }
 
     // Check if passwords match
-    // if (password !== password2) {
-    //     errors.push({msg: "Passwords do not match"});
-    // }
+    if (password !== password2) {
+        errors.push({msg: "Passwords do not match"});
+    }
 
     // Check password length
     if (password.length < 6) {
@@ -35,8 +35,6 @@ router.post("/register", (req, res) => {
             errors,
             username,
             email,
-            password
-            // password2
         });
     } else {
         // Validation Passed
@@ -52,8 +50,6 @@ router.post("/register", (req, res) => {
                     errors,
                     username,
                     email,
-                    password
-                    // password2
                 });
             } else {
                 User.create({
