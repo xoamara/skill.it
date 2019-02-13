@@ -1,9 +1,13 @@
 const path = require("path");
 const router = require("express").Router();
 
+const dir = function(ejsFileName) {
+    return path.join(__dirname, `../public/views/pages_testing/${ejsFileName}`);
+};
+
 // Home page
 router.get("/", (req, res) => {
-    res.render(path.join(__dirname, "../public/views/pages/index.ejs"));
+    res.render(dir("index.ejs"));
 });
 
 // Send login page
@@ -14,22 +18,22 @@ router.get("/login", (req, res) => {
     // if (req.user) {
     //     res.redirect("/");
     // }
-    res.render(path.join(__dirname, "../public/views/pages/login.ejs"));
+    res.render(dir("login.ejs"));
 });
 
 // Signup a new user
 router.get("/signup", (req, res) => {
-    res.render(path.join(__dirname, "../public/views/pages/register.ejs"));
+    res.render(dir("register.ejs"));
 });
 
 // Contact Page
 router.get("/contact", (req, res) => {
-    res.render(path.join(__dirname, "../public/views/pages/contact.ejs"));
+    res.render(dir("contact.ejs"));
 });
 
 // About skill.it
 router.get("/about", (req, res) => {
-    res.render(path.join(__dirname, "../public//views/pages/about.ejs"));
+    res.render(dir("about.ejs"));
 });
 
 module.exports = router;

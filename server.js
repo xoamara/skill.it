@@ -3,7 +3,7 @@ const expressLayouts = require("express-ejs-layouts");
 // const sequelize = require("sequelize");
 const flash = require("connect-flash");
 const session = require("express-session");
-const passport = require("./config/passport");
+const passport = require("passport");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -17,6 +17,7 @@ const db = require("./models");
 // EJS
 app.use(expressLayouts);
 app.set("view engine", "ejs");
+app.set("views", "./public/views/pages_testing");
 
 // Bodyparsing
 app.use(express.urlencoded({ extended: false }));
