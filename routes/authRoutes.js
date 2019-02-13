@@ -57,7 +57,7 @@ router.post("/register", (req, res) => {
                     email: email,
                     password: bcrypt.hashSync(password, bcrypt.genSaltSync(10))
                 }).then(() => {
-                    req.flash("success_msg", "You are now registered and can log in");
+                    req.flash("successMsg", "You are now registered and can log in");
                     res.redirect("/login");
                 });
             }
