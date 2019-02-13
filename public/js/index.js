@@ -16,43 +16,43 @@ $(() => {
         });
     });
 
-    $("#signupSubmit").on("click", (event) => {
-        event.preventDefault();
-        if ($(".checkbox")) {
-            const username = $("#usernameInput").val().trim();
-            const email = $("#emailInput").val().trim();
-            const password = $("#passwordInput").val().trim();
-            const description = $("#aboutMe").val();
+    // $("#signupSubmit").on("click", (event) => {
+    //     event.preventDefault();
+    //     if ($(".checkbox")) {
+    //         const username = $("#usernameInput").val().trim();
+    //         const email = $("#emailInput").val().trim();
+    //         const password = $("#passwordInput").val().trim();
+    //         const description = $("#aboutMe").val();
 
-            console.log(username, email, password, description);
+    //         console.log(username, email, password, description);
 
-            $.post("/register", {
-                username: username,
-                email: email,
-                password: password,
-                description: description
-            }).then((res) => {
-                console.log(res);
-                window.location.replace("/");
-            });
-        }
-    });
+    //         $.post("/register", {
+    //             username: username,
+    //             email: email,
+    //             password: password,
+    //             description: description
+    //         }).then((res) => {
+    //             console.log(res);
+    //             window.location.replace("/");
+    //         });
+    //     }
+    // });
 
-    $("#loginSubmit").on("click", (event) => {
-        event.preventDefault();
-        const username = $("usernameInput").val().trim();
-        const password = $("passwordInput").val().trim();
+    // $("#loginSubmit").on("click", (event) => {
+    //     event.preventDefault();
+    //     const username = $("usernameInput").val().trim();
+    //     const password = $("passwordInput").val().trim();
 
-        console.log(username, password);
+    //     console.log(username, password);
 
-        $.post("/login", {
-            username: username,
-            password: password
-        }).then((res) => {
-            console.log(res);
-            window.location.replace("/");
-        });
-    });
+    //     $.post("/login", {
+    //         username: username,
+    //         password: password
+    //     }).then((res) => {
+    //         console.log(res);
+    //         window.location.replace("/");
+    //     });
+    // });
 
     $(".cancelButton").on("click", (event) => {
         event.preventDefault;
