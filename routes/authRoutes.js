@@ -1,31 +1,83 @@
-const db = require("../models");
+const express = require("express");
+const router = express.Router();
 const passport = require("../config/passport");
+const bcrypt = require("bcryptjs");
 
-const router = require("express").Router();
-
-// route for loggin in
-router.post("/login", passport.authenticate("local"), (req, res) => {
-    res.json("/members");
-});
+// User Model
+const User = require("../models").User;
 
 // route for signing up
 router.post("/register", (req, res) => {
-    db.User.create({
-        username: req.body.username,
-        password: req.body.password,
-        email: req.body.email
-    }).then(() => {
-        res.redirect(307, "/login"); // automatically login after signup
-    }).catch(err => {
-        console.log(err);
-        res.json(err);
-    });
+    const { username, email, password, password2, agreeBox} = req.body;
+    const errors = [];
+
+    // Check required fields
+    if (!(username && email && password && password2)) {
+        errors.push({msg: "Please fill in all fields"});
+    }
+
+    if (!agreeBox) {
+        errors.push({msg: "Please agree to terms and conditions"});
+    }
+
+    // Check if passwords match
+    if (password !== password2) {
+        errors.push({msg: "Passwords do not match"});
+    }
+
+    // Check password length
+    if (password.length < 6) {
+        errors.push({msg: "Password must be at least 6 characters"});
+    }
+
+    if (errors.length > 0) {
+        res.render("register", {
+            errors,
+            username,
+            email,
+        });
+    } else {
+        // Validation Passed
+        User.findOne({
+            where: {
+                username: username
+            }
+        }).then(response => {
+            if (response) {
+                // User exists already
+                errors.push({msg: "Username is already registered"});
+                res.render("register", {
+                    errors,
+                    username,
+                    email,
+                });
+            } else {
+                User.create({
+                    username: username,
+                    email: email,
+                    password: bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+                }).then(() => {
+                    req.flash("success_msg", "You are now registered and can log in");
+                    res.redirect("/login");
+                });
+            }
+        });
+    }
+});
+
+// route for logging in
+router.post("/login", (req, res, next) => {
+    passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/login",
+        failureFlash: true
+    })(req, res, next);
 });
 
 // route for logging out
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/"); // redirect to home page
+    res.redirect("/login"); // redirect to login page
 });
 
 module.exports = router;

@@ -1,0 +1,30 @@
+<% if (typeof errors !== "undefined") { %>
+    <% errors.forEach(function(error) { %>
+        <div class="notification is-warning">
+            <%= error.msg %>
+            <button class="delete"></button>
+        </div>
+    <% }); %>
+<%  } %>
+
+
+<% if (success_msg != "") { %>
+    <div class="notification is-success">
+        <%= success_msg %>
+        <button class="delete"></button>
+    </div>
+<% } %>
+
+<% if (error_msg != "") { %>
+    <div class="notification is-warning">
+        <%= error_msg %>
+        <button class="delete"></button>
+    </div>
+<% } %>
+
+<% if (error != "") { %>
+    <div class="notification is-warning">
+        <%= error %>
+        <button class="delete"></button>
+    </div>
+<% } %>

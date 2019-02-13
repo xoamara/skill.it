@@ -1,8 +1,9 @@
 // Allows for restricting routes for unauthenticated users
 module.exports = function(req, res, next) {
-    if (req.user) {
+    if (req.isAuthenticated()) {
         return next();
     }
 
-    return res.redirect("/");
+    req.flash("error_msg", "Please log in to use this resource");
+    res.redirect("/login");
 };
