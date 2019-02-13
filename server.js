@@ -1,30 +1,51 @@
 const express = require("express");
+const expressLayouts = require("express-ejs-layouts");
+const sequelize = require("sequelize");
+const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("./config/passport");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+// Passport config
+require("./config/passport")(passport);
+
+// DB Config
 const db = require("./models");
 
-// Middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static("public"));
+// EJS
+app.use(expressLayouts);
 app.set("view engine", "ejs");
 
-// Middleware for Nodemailer
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Bodyparsing
+app.use(express.urlencoded({ extended: false }));
 
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+// Express Session
+app.use(session({
+    secret: "skill.it is awesome",
+    resave: true,
+    saveUninitialized: true
+}));
+
+// Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Test route -- delete this later
-// app.get("/", (req, res) => {
-//     res.render(path.join(__dirname, "./views/pages/main.ejs"));
-// });
+// Flash Messages
+app.use(flash());
+
+// Global Vars
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash("success_msg");
+    res.locals.error_msg = req.flash("error_msg");
+    res.locals.error = req.flash("error");
+    next();
+});
+
+// Other Middleware
+app.use(express.json());
+app.use(express.static("public"));
 
 // Routes
 const authRoutes = require("./routes/authRoutes");
@@ -37,7 +58,5 @@ const htmlRoutes = require("./routes/htmlRoutes");
 app.use(htmlRoutes);
 
 db.sequelize.sync().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server listening on PORT ${PORT}`);
-    });
+    app.listen(PORT, console.log(`Server listening on PORT ${PORT}`));
 });
