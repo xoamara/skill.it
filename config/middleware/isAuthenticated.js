@@ -4,6 +4,6 @@ module.exports = function(req, res, next) {
         return next();
     }
 
-    req.flash("error_msg", "Please log in to use this resource");
+    req.flash("errorMsg", "Please log in to use this resource");
     res.redirect("/login");
 };
