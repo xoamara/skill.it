@@ -1,6 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
-// const { isAuthenticated } = require("../config/middleware/isAuthenticated");
+const { isAuthenticated } = require("../config/middleware/isAuthenticated");
 
 const db = require("../models");
 
@@ -39,7 +39,6 @@ router.get("/", (req, res) => {
                 }
             ]
         }).then(skillResults => {
-            console.log(skillResults[0]);
             res.render(dir("index.ejs"), {
                 users: userResults,
                 skills: skillResults
@@ -59,8 +58,8 @@ router.get("/login", (req, res) => {
     res.render(dir("login.ejs"));
 });
 
-// Signup a new user
-router.get("/signup", (req, res) => {
+// Register a new user
+router.get("/register", (req, res) => {
     res.render(dir("register.ejs"));
 });
 
