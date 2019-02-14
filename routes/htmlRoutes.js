@@ -3,7 +3,7 @@ const router = require("express").Router();
 const { isAuthenticated } = require("../config/middleware/isAuthenticated");
 
 const dir = function(ejsFileName) {
-    return path.join(__dirname, `../public/views/pages_testing/${ejsFileName}`);
+    return path.join(__dirname, `../public/views/pages/${ejsFileName}`);
 };
 
 // Home page
