@@ -1,7 +1,7 @@
 <main class="Site-content">
 
     <!-- Modal -->
-    <div class="modal is-active">
+    <div class="modal is-active" is-clipped>
         <div class="modal-background"></div>
         <div class="modal-content">
 
@@ -74,9 +74,9 @@
                             <div class="control">
                                 <div class="select">
                                     <select>
-                                        <option>Painting</option>
-                                        <option>Yoga</option>
-                                        <option>Chemisty</option>
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                            <option skillid="<%= skills[i].dataValues.skillId %>"><%= skills[i].dataValues.name %></option>
+                                        <% } %>
                                     </select>
                                 </div>
                             </div>
@@ -87,9 +87,9 @@
                             <div class="control">
                                 <div class="select">
                                     <select>
-                                        <option>Cooking</option>
-                                        <option>Sailing</option>
-                                        <option>Game designn</option>
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                            <option skillid="<%= skills[i].dataValues.skillId %>"><%= skills[i].dataValues.name %></option>
+                                        <% } %>
                                     </select>
                                 </div>
                             </div>

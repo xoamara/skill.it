@@ -60,7 +60,13 @@ router.get("/login", (req, res) => {
 
 // Register a new user
 router.get("/register", (req, res) => {
-    res.render(dir("register.ejs"));
+    db.Skill.findAll({
+        attributes: ["id", "name"]
+    }).then(skills => {
+        res.render(dir("register.ejs"), {
+            skills: skills
+        });
+    });
 });
 
 // Contact Page
