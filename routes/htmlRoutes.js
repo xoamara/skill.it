@@ -1,5 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
+const { isAuthenticated } = require("../config/middleware/isAuthenticated");
 
 const dir = function(ejsFileName) {
     return path.join(__dirname, `../public/views/pages_testing/${ejsFileName}`);
@@ -34,6 +35,11 @@ router.get("/contact", (req, res) => {
 // About skill.it
 router.get("/about", (req, res) => {
     res.render(dir("about.ejs"));
+});
+
+// Test route for ensuring Authentication
+router.get("/test", isAuthenticated, (req, res) => {
+    res.render(dir("test.ejs"));
 });
 
 module.exports = router;
