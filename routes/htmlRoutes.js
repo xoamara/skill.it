@@ -47,10 +47,9 @@ router.get("/testAuthed", isAuthenticated, (req, res) => {
     res.render(dir("test.ejs"));
 });
 
+// Welcomes the user and tells them if they are logged in
 router.get("/testIfAuthed", (req, res) => {
-    res.render(dir("testIf.ejs"), {
-        user: req.user
-    });
+    res.render(dir("testIf.ejs"));
 });
 
 module.exports = router;

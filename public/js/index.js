@@ -36,7 +36,7 @@ $(() => {
             method: "GET",
             url: "/api/users"
         }).then((res) => {
-            const tmplt = res.map(user => {
+            const tmplt = res.reverse().map(user => {
                 let str = `
                 <div class="box is-shadow">
                     <article class="media">
