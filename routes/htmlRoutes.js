@@ -79,9 +79,16 @@ router.get("/about", (req, res) => {
     res.render(dir("about.ejs"));
 });
 
+// Test route for ensuring Authentication
+router.get("/testAuthed", isAuthenticated, (req, res) => {
+    res.render(dir("test.ejs"));
+});
+
 // Welcomes the user and tells them if they are logged in
 router.get("/testIfAuthed", (req, res) => {
-    res.render(dir("testIf.ejs"));
+    res.render(dir("testIf.ejs"), {
+        user: req.user
+    });
 });
 
 module.exports = router;
