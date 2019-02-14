@@ -32,6 +32,11 @@ router.get("/contact", (req, res) => {
     res.render(dir("contact.ejs"));
 });
 
+// Email skill.it user
+router.get("/email", (req, res) => {
+    res.render(dir("email.ejs"));
+});
+
 // About skill.it
 router.get("/about", (req, res) => {
     res.render(dir("about.ejs"));
