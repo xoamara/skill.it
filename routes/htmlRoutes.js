@@ -39,7 +39,6 @@ router.get("/", (req, res) => {
                 }
             ]
         }).then(skillResults => {
-            console.log(skillResults[0]);
             res.render(dir("index.ejs"), {
                 users: userResults,
                 skills: skillResults
