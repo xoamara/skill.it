@@ -1,6 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
-// const { isAuthenticated } = require("../config/middleware/isAuthenticated");
+const { isAuthenticated } = require("../config/middleware/isAuthenticated");
 
 const db = require("../models");
 
@@ -59,9 +59,15 @@ router.get("/login", (req, res) => {
     res.render(dir("login.ejs"));
 });
 
-// Signup a new user
-router.get("/signup", (req, res) => {
-    res.render(dir("register.ejs"));
+// Register a new user
+router.get("/register", (req, res) => {
+    db.Skill.findAll({
+        attributes: ["id", "name"]
+    }).then(skills => {
+        res.render(dir("register.ejs"), {
+            skills: skills
+        });
+    });
 });
 
 // Contact Page

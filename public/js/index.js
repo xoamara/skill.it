@@ -18,14 +18,6 @@ $(() => {
         });
     });
 
-    $(".cancelButton").on("click", (event) => {
-        event.preventDefault;
-        if ($(".cancelButton")) {
-            window.location.replace("/");
-        }
-    });
-
-
     /* Render users to the page */
     // function showUsers() {
     //     $.ajax({
