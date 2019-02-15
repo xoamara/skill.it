@@ -18,17 +18,10 @@ $(() => {
         });
     });
 
-    $(".cancelButton").on("click", (event) => {
-        event.preventDefault;
-        if ($(".cancelButton")) {
-            window.location.replace("/");
-        }
-    });
-
-    $(".burger").on("click", () => {
-        console.log("clicked");
-        $(".navbar-burger").toggleClass("is-active");
-    });
+    // $(".burger").on("click", () => {
+    //     console.log("clicked");
+    //     $(".navbar-burger").toggleClass("is-active");
+    // });
 
     /* Render users to the page */
     // function showUsers() {
