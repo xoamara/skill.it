@@ -5,16 +5,14 @@ $(() => {
         $(this).parent().remove();
     });
 
-    $(".searchDiv").on("click", ".button", (event) => {
+    $("#searchButton").on("click", (event) => {
         event.preventDefault();
 
+        const searchForm = $("#searchForm");
         const skill = $("#skillSearch").val().trim();
 
-        $.ajax({
-            method: "GET",
-            url: "/api/skills/" + skill,
-        }).then((res) => {
-            console.log(res);
-        });
+        searchForm.attr("action", "/api/users/skill/" + skill);
+
+        searchForm.submit();
     });
 });
