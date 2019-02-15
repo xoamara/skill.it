@@ -73,9 +73,9 @@
                             <label class="label">What I teach</label>
                             <div class="control">
                                 <div class="select">
-                                    <select>
+                                    <select name="toTeach">
                                         <% for(let i = 0; i < skills.length; i++) { %>
-                                            <option skillid="<%= skills[i].dataValues.skillId %>"><%= skills[i].dataValues.name %></option>
+                                            <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %></option>
                                         <% } %>
                                     </select>
                                 </div>
@@ -86,9 +86,9 @@
                             <label class="label">What I want to learn</label>
                             <div class="control">
                                 <div class="select">
-                                    <select>
+                                    <select name="toLearn">
                                         <% for(let i = 0; i < skills.length; i++) { %>
-                                            <option skillid="<%= skills[i].dataValues.skillId %>"><%= skills[i].dataValues.name %></option>
+                                            <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %></option>
                                         <% } %>
                                     </select>
                                 </div>
