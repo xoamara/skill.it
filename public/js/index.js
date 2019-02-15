@@ -25,6 +25,10 @@ $(() => {
         }
     });
 
+    $(".burger").on("click", () => {
+        console.log("clicked");
+        $(".navbar-burger").toggleClass("is-active");
+    });
 
     /* Render users to the page */
     // function showUsers() {

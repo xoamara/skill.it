@@ -1,6 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
-// const { isAuthenticated } = require("../config/middleware/isAuthenticated");
+const { isAuthenticated } = require("../config/middleware/isAuthenticated");
 
 const db = require("../models");
 
