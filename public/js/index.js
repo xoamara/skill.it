@@ -21,13 +21,9 @@ $(() => {
     $(".burger").on("click", () => {
         console.log("clicked");
         $(".navbar-burger").toggleClass("is-active");
-    });
-
-    $(".burger").on("click", () => {
-        console.log("clicked");
         $(".navbar-menu").toggleClass("is-active");
     });
-
+    
     /* Render users to the page */
     // function showUsers() {
     //     $.ajax({
