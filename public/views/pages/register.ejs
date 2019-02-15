@@ -1,6 +1,13 @@
 <main class="Site-content">
 
+<<<<<<< HEAD
     <!-- Content -->
+=======
+    <!-- Modal -->
+    <div class="modal is-active" is-clipped>
+        <div class="modal-background"></div>
+        <div class="modal-content">
+>>>>>>> c5cf4bc3a6365c4146added252266684666e49c4
 
     <div class="box createUser">
         <h1 class="is-size-4 has-text-weight-bold has-text-info">Sign up</h1>
@@ -77,6 +84,7 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div class="field">
                     <label class="label">What I want to learn</label>
                     <div class="control">
@@ -86,6 +94,33 @@
                                 <option>Sailing</option>
                                 <option>Game designn</option>
                             </select>
+=======
+                    <div class="box dropdowns">
+                        <div class="field">
+                            <label class="label">What I teach</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="toTeach">
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                            <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">What I want to learn</label>
+                            <div class="control">
+                                <div class="select">
+                                    <select name="toLearn">
+                                        <% for(let i = 0; i < skills.length; i++) { %>
+                                            <option skillid="<%= skills[i].dataValues.id %>"><%= skills[i].dataValues.name %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+>>>>>>> c5cf4bc3a6365c4146added252266684666e49c4
                         </div>
                     </div>
                 </div>
