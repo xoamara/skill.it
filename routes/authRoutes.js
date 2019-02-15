@@ -91,9 +91,6 @@ router.post("/register", (req, res) => {
                             skillId: skill.dataValues.id
                         });
                     });
-                    // console.log("toLearn: " + toLearn);
-                    // console.log("toTeach: " + toTeach);
-                    // console.log(newUser.dataValues);
                     req.flash("successMsg", "You are now registered and can log in");
                     res.redirect("/login");
                 });
