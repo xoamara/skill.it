@@ -2,6 +2,7 @@
     overflow: scroll;
     display: flex;
     flex-direction: column;
+    background-color:#F5F5F5;
 }
 
 #chathistory li {
@@ -11,7 +12,7 @@
 
 li.sender {
     align-self: flex-end;
-    background-color: #00E5C3;
+    background-color: #33CC33;
     text-align: right;
 }
 body {
@@ -19,9 +20,18 @@ body {
     background-image: repeat
 }
 
+.sendChat {
+    background-color: #33CC33; 
+}
+
+body {
+    background-image: url("../images/darkness.png");
+    background-image: repeat
+}
+
 li.receiver {
     align-self: flex-start;
-    background-color: #ffdd57;
+    background-color: #33CCFF;
 }
 
 .userName, .userEmail {
@@ -126,6 +136,11 @@ letter-spacing: 1px;
 
 .skillButton {
     margin: 5px;
+}
+
+.chatTitle, #senderU, #receiverU {
+    margin-top: 20px;
+    color: #F5F5F5
 }
 
 .bioBox {
