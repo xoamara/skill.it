@@ -220,6 +220,9 @@ router.get("/profile", isAuthenticated, (req, res) => {
                     as: "usersTeaching",
                     attributes: ["userId", "createdAt", "updatedAt"]
                 }
+            ],
+            order: [
+                ["id", "ASC"]
             ]
         }).then(skillResults => {
             for (let i = 0; i < skillResults.length; i++) {
