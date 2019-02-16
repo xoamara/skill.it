@@ -151,8 +151,38 @@ router.get("/about", (req, res) => {
 });
 
 router.get("/profile", isAuthenticated, (req, res) => {
-    res.render(dir("profile.ejs"), {
-        user: req.user
+    db.SkillToTeach.findAll({
+        where:
+            {
+                userId: req.user.dataValues.userId
+            }
+    }).then(teachResults => {
+        for (let i = 0; i < teachResults.length; i++) {
+            teachResults[i] = teachResults[i].dataValues.id;
+        }
+        db.SkillToLearn.findAll({
+            where:
+                {
+                    userId: req.user.dataValues.userId
+                }
+        }).then(learnResults => {
+            for (let i = 0; i < learnResults.length; i++) {
+                learnResults[i] = learnResults[i].dataValues.id;
+            }
+            db.Skill.findAll({
+                where:
+                    {
+                        id: [...teachResults, ...learnResults]
+                    }
+            }).then(skills => {
+                res.render(dir("profile.ejs"), {
+                    user: req.user,
+                    teachResults: teachResults,
+                    learnResults: learnResults,
+                    skills: skills
+                });
+            });
+        });
     });
 });
 
