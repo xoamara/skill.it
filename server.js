@@ -1,6 +1,5 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
-// const sequelize = require("sequelize");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
@@ -74,8 +73,6 @@ io.on("connection", socket => {
         });
     });
 });
-
-
 
 db.sequelize.sync().then(() => {
     httpServer.listen(PORT, console.log(`Server listening on PORT ${PORT}`));
