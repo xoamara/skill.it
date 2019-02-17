@@ -11,7 +11,11 @@ router.post("/register", (req, res) => {
     const { username, email, password, password2, toTeach, toLearn, description, agreeBox} = req.body;
     const errors = [];
 
-    db.Skill.findAll().then(skills => {
+    db.Skill.findAll({
+        order: [
+            ["id", "ASC"]
+        ]
+    }).then(skills => {
         // Check required fields
         if (!(username && email && password && password2 && toTeach && toLearn)) {
             errors.push({msg: "Please fill in all fields"});
@@ -70,13 +74,6 @@ router.post("/register", (req, res) => {
                                 name: toLearn
                             }
                         }).then(skill => {
-                            //   id at skill.dataValues.id
-                            // name at skill.dataValues.name
-
-                            // handler for a new skill
-                            // if (!skill) {
-                            //     // create new skill
-                            // }
                             db.SkillToLearn.create({
                                 userId: newUser.dataValues.id,
                                 skillId: skill.dataValues.id
