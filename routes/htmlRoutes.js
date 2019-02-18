@@ -37,6 +37,9 @@ router.get("/", (req, res) => {
                     as: "usersTeaching",
                     attributes: ["userId", "createdAt", "updatedAt"]
                 }
+            ],
+            order: [
+                ["id", "ASC"]
             ]
         }).then(skillResults => {
             res.render(dir("index.ejs"), {
@@ -53,7 +56,6 @@ router.post("/search", (req, res) => {
         attributes: ["id"],
         where: {
             name: req.body.skillName
-            // name: "music"
         }
     }).then(skillRes => {
         // skill id in skillRes.dataValues.id
@@ -96,6 +98,9 @@ router.post("/search", (req, res) => {
                             as: "usersTeaching",
                             attributes: ["userId", "createdAt", "updatedAt"]
                         }
+                    ],
+                    order: [
+                        ["id", "ASC"]
                     ]
                 }).then(skillResults => {
                     res.render(dir("index.ejs"), {
@@ -126,7 +131,10 @@ router.get("/register", (req, res) => {
         res.redirect("/");
     }
     db.Skill.findAll({
-        attributes: ["id", "name"]
+        attributes: ["id", "name"],
+        order: [
+            ["id", "ASC"]
+        ]
     }).then(skills => {
         res.render(dir("register.ejs"), {
             skills: skills
@@ -148,44 +156,6 @@ router.get("/email", (req, res) => {
 router.get("/about", (req, res) => {
     res.render(dir("about.ejs"));
 });
-
-// User Profile page
-// router.get("/profile", isAuthenticated, (req, res) => {
-//     db.SkillToTeach.findAll({
-//         where:
-//             {
-//                 userId: req.user.dataValues.userId
-//             }
-//     }).then(teachResults => {
-//         // for (let i = 0; i < teachResults.length; i++) {
-//         //     teachResults[i] = teachResults[i].dataValues.id;
-//         // }
-//         db.SkillToLearn.findAll({
-//             where:
-//                 {
-//                     userId: req.user.dataValues.userId
-//                 }
-//         }).then(learnResults => {
-//             // for (let i = 0; i < learnResults.length; i++) {
-//             //     learnResults[i] = learnResults[i].dataValues.id;
-//             // }
-//             db.Skill.findAll().then(skills => {
-//                 for (let i = 0; i < skills.length; i++) {
-//                     skills[i] = {
-//                         id: skills[i].dataValues.id,
-//                         name: skills[i].dataValues.name
-//                     };
-//                 }
-//                 res.render(dir("profile.ejs"), {
-//                     user: req.user,
-//                     teachResults: teachResults,
-//                     learnResults: learnResults,
-//                     skills: skills
-//                 });
-//             });
-//         });
-//     });
-// });
 
 // User Profile page
 router.get("/profile", isAuthenticated, (req, res) => {
@@ -220,6 +190,9 @@ router.get("/profile", isAuthenticated, (req, res) => {
                     as: "usersTeaching",
                     attributes: ["userId", "createdAt", "updatedAt"]
                 }
+            ],
+            order: [
+                ["id", "ASC"]
             ]
         }).then(skillResults => {
             for (let i = 0; i < skillResults.length; i++) {

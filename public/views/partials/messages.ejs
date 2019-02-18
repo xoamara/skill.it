@@ -8,7 +8,6 @@
 <%  } %>
 
 <% if (typeof errorArray !== "undefined") { %>
-    <% console.log(errorArray) %>
     <% errorArray.forEach(error => { %>
         <div class="notification is-warning">
             <%= error.msg %>
