@@ -1,8 +1,16 @@
-# skill.it
+# [skill.it](https://skillit-si.herokuapp.com/)
 
-Share your skills, talents, and experience in a whole new way with skill.it.
+Share your skills, talents, and experience in a whole new way with [skill.it](https://skillit-si.herokuapp.com/).
 
-skill.it is a cashless skills exchange platform where you can teach others what you are good at and learn something you are interested in in return.
+[skill.it](https://skillit-si.herokuapp.com/) is a cashless skills exchange platform where you can teach others what you are good at and learn something you are interested in in return.
+
+## Dependencies [skill.it](https://skillit-si.herokuapp.com/) utilizes
+> * Express
+> * EJS Layouts
+> * MySQL and Sequelize
+> * Nodemailer
+> * Socket.io
+> * Passport and bcrypt
 
 ## Quick Start
 
@@ -47,6 +55,8 @@ To undo a migration or seeding, run the following:
 sequelize db:migrate:undo:all
 sequelize db:seed:undo:all
 ```
+
+## Visit [skill.it](https://skillit-si.herokuapp.com/) and try it out!
 
 ## Contributors
 
