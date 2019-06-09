@@ -4,7 +4,7 @@ Share your skills, talents, and experience in a whole new way with [skill.it](ht
 
 [skill.it](https://skillit-si.herokuapp.com/) is a cashless skills exchange platform where you can teach others what you are good at and learn something you are interested in in return.
 
-## Dependencies [skill.it](https://skillit-si.herokuapp.com/) utilizes
+## Dependencies [skill.it](https://skillit-si.herokuapp.com) utilizes
 > * Express
 > * EJS Layouts
 > * MySQL and Sequelize
